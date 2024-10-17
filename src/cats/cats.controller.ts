@@ -14,12 +14,11 @@ import {
   import { CreateCatDto } from './dto/create-cat.dto';
   import { UpdateCatDto } from './dto/update-cat.dto';
   import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-  import { RolesGuard } from '../guards/roles.guard';
   import { JoiValidationPipe } from '../pipes/joi-validation.pipe';
   import { createCatSchema, updateCatSchema } from '../schemas/cat.schema';
   
   @Controller('cats')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(JwtAuthGuard)
   export class CatsController {
     constructor(private readonly catsService: CatsService) {}
   
